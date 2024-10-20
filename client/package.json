@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "npm install --omit=dev && npm run build && npm run serve"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
@@ -37,6 +38,7 @@
     "eslint-plugin-react-refresh": "^0.4.12",
     "globals": "^15.9.0",
     "postcss": "^8.4.47",
+    "serve": "^14.2.4",
     "tailwindcss": "^3.4.14",
     "vite": "^5.4.8"
   }
