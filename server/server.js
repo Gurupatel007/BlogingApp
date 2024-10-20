@@ -8,16 +8,17 @@ require("dotenv").config();
 const app = express();
 
 const corsOptions = {
-    origin: 'https://noteit.up.railway.app', // Allow only your frontend origin
+    origin: 'https://noteit.up.railway.app',
     optionsSuccessStatus: 200,
     credentials: true
 };
 
 app.use(cors(corsOptions));
-
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log('MongoDB connection error:', err));
 
 app.get('/', (req, res) => {
     res.send('Hello World');
