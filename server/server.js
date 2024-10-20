@@ -8,8 +8,9 @@ require("dotenv").config();
 const app = express();
 
 const corsOptions = {
-    origin: 'https://noteit.up.railway.app/', // Allow only your frontend origin
-    optionsSuccessStatus: 200 // For legacy browser support
+    origin: 'https://noteit.up.railway.app', // Allow only your frontend origin
+    optionsSuccessStatus: 200,
+    credentials: true
 };
 
 app.use(cors(corsOptions));
