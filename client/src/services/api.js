@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://noteit.up.railway.app/api';
+const API_URL = 'https://blogappbackend.up.railway.app/api';
 
 const api = axios.create({
   baseURL: API_URL,
