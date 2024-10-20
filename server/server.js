@@ -12,6 +12,10 @@ app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI);
 
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/blogs', blogRoutes);
 
