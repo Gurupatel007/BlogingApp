@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 const Register = () => {
-  const [name, setName] = useState('');
+  const [username, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -19,7 +19,7 @@ const Register = () => {
       return;
     }
     try {
-      await register({ name, email, password });
+      await register({ username, email, password });
       navigate('/dashboard');
     } catch (error) {
       console.error('Error:', error);
@@ -40,7 +40,7 @@ const Register = () => {
               id="name"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter your name"
-              value={name}
+              value={username}
               onChange={(e) => setName(e.target.value)}
               required
             />
