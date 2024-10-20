@@ -69,7 +69,7 @@ const BlogDetail = () => {
   }
 
   if (!blog) {
-    return <div className="text-center text-red-500 text-2xl font-bold mt-10">Blog not found</div>;
+    return <div className={"text-center text-red-500 text-2xl font-bold mt-10"}>Blog not found</div>;
   }
 
   return (
