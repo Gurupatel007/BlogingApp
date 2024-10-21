@@ -9,18 +9,41 @@ const Dashboard = () => {
   const [blogs, setBlogs] = useState([]);
   const MySwal = withReactContent(Swal);
 
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    setUser(null);
+    window.location.href = '/login'; // Redirect to login page after logout
+  };
+  
+
   useEffect(() => {
     fetchBlogs();
   }, []);
+
+  // const fetchBlogs = async () => {
+  //   try {
+  //     const response = await getUserBlogs();
+  //     setBlogs(response.data);
+  //   } catch (error) {
+  //     console.error('Error fetching user blogs:', error);
+  //   }
+  // };
 
   const fetchBlogs = async () => {
     try {
       const response = await getUserBlogs();
       setBlogs(response.data);
     } catch (error) {
-      console.error('Error fetching user blogs:', error);
+      if (error.response && error.response.status === 401) {
+        // Token might be expired, force a logout
+        logout();
+      } else {
+        console.error('Error fetching user blogs:', error);
+      }
     }
   };
+  
 
   // const handleDelete = async (id) => {
   //   try {
