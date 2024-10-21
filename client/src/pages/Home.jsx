@@ -42,11 +42,11 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen">
-      <div className="max-w-6xl mx-auto px-4 py-12">
+    <div className="min-h-screen bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <header className="text-center mb-16">
           <h1 className="text-6xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-            GT <span className="text-blue-500">Blog</span>
+            Note <span className="text-blue-500">it</span>
           </h1>
           <p className="text-xl text-gray-600">Discover insightful articles and stories</p>
         </header>
@@ -65,7 +65,7 @@ const Home = () => {
         {filteredBlogs.length === 0 ? (
           <p className="text-center text-gray-600 text-lg">No public blogs available.</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {filteredBlogs.map((blog) => (
               <div key={blog._id} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out">
                 <div className="p-6">
@@ -78,11 +78,11 @@ const Home = () => {
                     <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
                   </p>
                   <p className="text-gray-600 mb-6">{stripHtml(blog.content).substring(0, 100)}...</p>
-                  <Link 
-                    to={`/blog/${blog._id}`} 
+                  <Link
+                    to={`/blog/${blog._id}`}
                     className="inline-flex items-center px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"
                   >
-                    Read More 
+                    Read More
                     <svg
                       className="ml-2 h-4 w-4"
                       fill="none"
