@@ -28,7 +28,7 @@ export const deleteBlog = (id) => api.delete(`/blogs/${id}`);
 export const getBlogById = (id) => api.get(`/blogs/${id}`);
 export const getComments = (blogId) => api.get(`/blogs/${blogId}/comments`);
 export const addComment = (blogId, commentData) => api.post(`/blogs/${blogId}/comments`, commentData);
-export const getUserPublicBlogs = (username) => api.get(`/users/${username}/blogs`);
+export const getUserPublicBlogs = (username) => api.get(`/u/${username}`);
 
 
 export default api;

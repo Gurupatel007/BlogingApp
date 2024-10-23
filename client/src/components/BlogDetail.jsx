@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import DOMPurify from 'dompurify';
 import 'react-quill/dist/quill.snow.css';
@@ -80,7 +80,9 @@ const BlogDetail = () => {
             <div className="p-8 bg-gradient-to-r from-blue-400 via-sky-500 to-blue-400 text-white">
               <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
               <div className="text-gray-100">
-                <span className="font-semibold">{blog.author.username}</span>
+                <Link to={`/u/${blog.author.username}`} className="font-semibold hover:underline">
+                  {blog.author.username}
+                </Link>
                 <span className="ml-2">{new Date(blog.createdAt).toLocaleDateString()}</span>
               </div>
             </div>

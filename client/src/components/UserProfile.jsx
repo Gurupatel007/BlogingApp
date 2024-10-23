@@ -8,10 +8,18 @@ const UserProfile = () => {
   const [loading, setLoading] = useState(true);
   const { username } = useParams();
 
+  const stripHtml = (html) => {
+    const tmp = document.createElement('DIV');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+  };
+
   useEffect(() => {
     const fetchUserBlogs = async () => {
       try {
+        console.log(username)
         const response = await getUserPublicBlogs(username);
+        console.log(response)
         setBlogs(response.data);
       } catch (error) {
         console.error('Error fetching user blogs:', error);
@@ -40,7 +48,8 @@ const UserProfile = () => {
                   {blog.title}
                 </Link>
               </h3>
-              <p className="text-gray-800">{blog.content.substring(0, 100)}...</p>
+              <p className="text-gray-800">{stripHtml(blog.content.substring(0, 100))}...</p>
+              <p className="text-sm text-gray-500">{new Date(blog.createdAt).toLocaleDateString()}</p>
             </div>
           ))}
         </div>
